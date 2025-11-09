@@ -1,0 +1,321 @@
+/* ===== General Styling ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  color: #444;
+}
+
+/* ===== Animated Background ===== */
+.animated-bg {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #ffd6d6, #d6f5ff, #fff3cd, #e5d6ff);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  z-index: -2;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px 50px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* ===== Main Section ===== */
+.main {
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+}
+
+/* Decorative background image inside main, light and not full-page */
+.main::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 100%;
+  height: 60%;
+  max-height: 420px;
+  background-image: url('https://media.istockphoto.com/photos/business-concept-money-of-glass-and-growht-small-tree-picture-id810721440?k=6&m=810721440&s=612x612&w=0&h=qxA_dCCIRQD3z7UnWumGj5lGJoUGGIRF-iuiQ-xzAHc=');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 12px;
+}
+
+.subtitle {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  color: #5b6b72;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease;
+}
+
+.title span {
+  color: #888;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Form ===== */
+.budget-tracker {
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.budget-progress {
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #4CAF50;
+  transition: width 0.3s ease, background-color 0.3s;
+  width: 0;
+}
+
+.budget-message {
+  margin: 10px 0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.budget-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.budget-message.warning {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.budget-message.normal {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.budget-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.secondary-btn.warning {
+  color: #d32f2f;
+  border-color: #ffcdd2;
+}
+
+.secondary-btn.warning:hover {
+  background: #fff5f5;
+}
+
+.progress-bar.warning { background: #FFC107; }
+.progress-bar.danger { background: #FF5722; }
+
+.expense-form {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.expense-form input,
+.expense-form select {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  outline: none;
+  width: 230px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+#date {
+  width: 160px;
+}
+
+.filter-controls {
+  margin: 20px auto;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+}
+
+.filter-controls input,
+.filter-controls select {
+  padding: 8px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 0.9rem;
+  background: white;
+}
+
+.filter-controls input {
+  width: 250px;
+}
+
+.monthly-summary {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #444;
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+}
+
+.expense-form input:focus {
+  border: 2px solid #a7c7e7;
+}
+
+#add-btn {
+  background-color: #b0e0e6;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+#add-btn:hover {
+  background-color: #add8e6;
+  transform: scale(1.05);
+}
+
+/* ===== Chart ===== */
+.chart-container {
+  margin-top: 50px;
+  width: 90%;
+  max-width: 500px;
+  margin-inline: auto;
+  animation: fadeIn 2s ease;
+}
+
+.total-expense {
+  margin-top: 20px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  padding: 15px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  backdrop-filter: blur(6px);
+}
+
+/* Expense list/table styles */
+.expense-list {
+  margin: 30px auto 0;
+  width: 90%;
+  max-width: 900px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  backdrop-filter: blur(6px);
+  text-align: left;
+}
+.expense-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.expense-list th, .expense-list td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.95rem;
+}
+.expense-list th {
+  color: #333;
+  font-weight: 600;
+}
+.expense-list .right { text-align: right; }
+.expense-list .muted { color: #666; font-size: 0.85rem; }
+.expense-list .total-row td { font-weight: 700; }
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  margin-top: 50px;
+  font-size: 0.9rem;
+}

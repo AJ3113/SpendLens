@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpendLens - Expense Visualizer</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-wallet"></i> SpendLens</div>
+    <ul class="nav-links">
+      <li><a href="#"><i class="fa-solid fa-home"></i> Home</a></li>
+      <li><a href="#"><i class="fa-solid fa-chart-pie"></i> Visualizer</a></li>
+      <li><a href="#"><i class="fa-solid fa-user"></i> Profile</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Section -->
+  <section class="main">
+    <h1 class="title">Track Your Spending <br> <span>See Where Your Money Goes 💸</span></h1>
+    <p class="subtitle">A one-page view to bring peace to your finances.</p>
+
+    <div class="budget-tracker">
+      <div id="budget-progress" class="budget-progress">
+        <div class="progress-bar"></div>
+      </div>
+      <div id="budget-message" class="budget-message"></div>
+      <div class="budget-controls">
+        <button id="set-budget" class="secondary-btn">
+          <i class="fa-solid fa-bullseye"></i> Set Monthly Budget
+        </button>
+        <button id="reset-month" class="secondary-btn warning">
+          <i class="fa-solid fa-rotate"></i> Reset Monthly Expenses
+        </button>
+      </div>
+    </div>
+
+    <div class="expense-form">
+      <select id="category">
+        <option value="">-- Select category --</option>
+        <option>Food & Drinks</option>
+        <option>Transportation</option>
+        <option>Groceries</option>
+        <option>Shopping</option>
+        <option>Bills & Utilities</option>
+        <option>Rent / Housing</option>
+        <option>Subscriptions</option>
+        <option>Education</option>
+        <option>Health and wellness</option>
+        <option>Entertainment</option>
+        <option>Miscellaneous</option>
+      </select>
+      <input type="number" id="amount" placeholder="Enter amount" />
+      <input type="date" id="date" />
+      <button id="add-btn"><i class="fa-solid fa-plus"></i> Add Expense</button>
+    </div>
+
+    <!-- Search and filter controls -->
+    <div class="filter-controls">
+      <input type="text" id="search" placeholder="🔍 Search expenses..." />
+      <select id="month-filter">
+        <option value="">All Months</option>
+      </select>
+      <select id="category-filter">
+        <option value="">All Categories</option>
+      </select>
+    </div>
+
+    <!-- Monthly summary -->
+    <div id="monthly-summary" class="monthly-summary"></div>
+
+    <!-- Expense list: shows each added expense in an organized table -->
+    <div id="expense-list" class="expense-list" aria-live="polite"></div>
+
+    <div class="chart-container">
+      <canvas id="expenseChart"></canvas>
+      <div id="total-expense" class="total-expense"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ by SpendLens</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
